@@ -1,10 +1,13 @@
 import "./App.css";
 import Layout from "./components/Layout";
+import Main from "./components/Main";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <Layout>
-      <h1>elo</h1>
+      <Sidebar />
+      <Main />
     </Layout>
   );
 }
