@@ -34,9 +34,9 @@ const Main = ({
           <TaskCreate closeForm={closeForm} onAddTask={onAddTask} />
         </section>
       ) : (
-        <section className={styles.panel}>
+        <section>
           {tasks.length === 0 ? (
-            <div className={styles.empty}>
+            <div className={`${styles.empty} ${styles["empty-card"]}`}>
               <p>No tasks yet.</p>
               <button className={styles["add-btn"]} onClick={openForm}>
                 Create your first task

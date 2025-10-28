@@ -31,19 +31,43 @@ const TaskCreate = ({ closeForm, onAddTask }: TaskCreateProps) => {
 
   return (
     <form className={styles.form} onSubmit={submitHandler}>
-      <p>
-        <label htmlFor="Name">Task name</label>
-        <input type="text" id="name" required onChange={nameChangeHandler} />
-      </p>
-      <p>
-        <label htmlFor="body">Task description</label>
-        <textarea id="body" required rows={3} onChange={bodyChangeHandler} />
-      </p>
+      <div className={styles.field}>
+        <label htmlFor="Name" className={styles.label}>
+          Task name
+        </label>
+        <input
+          type="text"
+          id="name"
+          className={styles.input}
+          value={enteredName}
+          placeholder="Enter task name"
+          required
+          onChange={nameChangeHandler}
+        />
+      </div>
+      <div className={styles.field}>
+        <label htmlFor="body" className={styles.label}>
+          Task description
+        </label>
+        <textarea
+          id="body"
+          className={styles.textarea}
+          value={enteredBody}
+          placeholder="Enter task description"
+          required
+          rows={4}
+          onChange={bodyChangeHandler}
+        />
+      </div>
       <p className={styles.actions}>
-        <button type="button" onClick={closeForm}>
+        <button
+          type="button"
+          className={`${styles.btn} ${styles.btnSecondary}`}
+          onClick={closeForm}
+        >
           Cancel
         </button>
-        <button>Submit</button>
+        <button className={styles.btn}>Submit</button>
       </p>
     </form>
   );
