@@ -1,6 +1,10 @@
 import styles from "./Sidebar.module.css";
 
-const Sidebar = () => {
+interface SidebarProps {
+  body: string;
+}
+
+const Sidebar = ({ body }: SidebarProps) => {
   return (
     <aside className={styles["side-bar"]}>
       <div className={styles.header}>
@@ -9,7 +13,7 @@ const Sidebar = () => {
       </div>
 
       <ul>
-        <li>Task 1</li>
+        <li>{body}</li>
       </ul>
     </aside>
   );
