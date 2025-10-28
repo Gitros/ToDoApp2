@@ -1,20 +1,22 @@
+import type { Task } from "../App";
 import styles from "./Sidebar.module.css";
 
 interface SidebarProps {
-  body: string;
+  openForm: () => void;
+  tasks: Task[];
 }
 
-const Sidebar = ({ body }: SidebarProps) => {
+const Sidebar = ({ openForm, tasks }: SidebarProps) => {
   return (
     <aside className={styles["side-bar"]}>
       <div className={styles.header}>
         <h1>To do app</h1>
-        <button className={styles["task-btn"]}>Add task</button>
+        <button className={styles["task-btn"]} onClick={openForm}>
+          Add task
+        </button>
       </div>
 
-      <ul>
-        <li>{body}</li>
-      </ul>
+      <ul></ul>
     </aside>
   );
 };

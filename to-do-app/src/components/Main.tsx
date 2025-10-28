@@ -1,17 +1,23 @@
-import type { ChangeEvent } from "react";
+import type { Task } from "../App";
 import styles from "./Main.module.css";
 import TaskCreate from "./TaskCreate";
 
 interface MainProps {
-  onBodyChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  taskCreation: boolean;
+  closeForm: () => void;
+  onAddTask: (task: Task) => void;
 }
 
-const Main = ({ onBodyChange }: MainProps) => {
+const Main = ({ taskCreation, closeForm, onAddTask }: MainProps) => {
   return (
     <main className={styles.main}>
       <h2>taski</h2>
       <div className={styles.body}>
-        <TaskCreate onBodyChange={onBodyChange} />
+        {taskCreation ? (
+          <TaskCreate closeForm={closeForm} onAddTask={onAddTask} />
+        ) : (
+          <p>No task selected yet</p>
+        )}
       </div>
     </main>
   );
