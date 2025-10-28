@@ -4,13 +4,14 @@ import styles from "./TaskList.module.css";
 
 interface TaskListProps {
   tasks: Task[];
+  onToggleDone: (name: string) => void;
 }
 
-const TaskList = ({ tasks }: TaskListProps) => {
+const TaskList = ({ tasks, onToggleDone }: TaskListProps) => {
   return (
     <ul className={styles.list}>
       {tasks.map((t, idx) => (
-        <TaskItem key={idx} task={t} />
+        <TaskItem key={idx} task={t} onToggleDone={onToggleDone} />
       ))}
     </ul>
   );

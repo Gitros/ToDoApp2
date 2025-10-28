@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar";
 export type Task = {
   name: string;
   body: string;
+  done?: boolean;
 };
 
 function App() {
@@ -15,6 +16,14 @@ function App() {
 
   const addTaskHandler = useCallback((taskData: Task) => {
     setTasks((prev) => [taskData, ...prev]);
+  }, []);
+
+  const toggleTaskDoneHandler = useCallback((name: string) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.name === name ? { ...task, done: !task.done } : task
+      )
+    );
   }, []);
 
   const openFormHandler = useCallback(() => setCreateTask(true), []);
@@ -29,6 +38,7 @@ function App() {
         closeForm={closeFormHandler}
         onAddTask={addTaskHandler}
         tasks={tasks}
+        onToggleDone={toggleTaskDoneHandler}
       />
     </Layout>
   );

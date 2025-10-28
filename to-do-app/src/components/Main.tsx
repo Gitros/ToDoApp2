@@ -8,6 +8,7 @@ interface MainProps {
   openForm: () => void;
   closeForm: () => void;
   onAddTask: (task: Task) => void;
+  onToggleDone: (name: string) => void;
   tasks: Task[];
 }
 
@@ -16,6 +17,7 @@ const Main = ({
   openForm,
   closeForm,
   onAddTask,
+  onToggleDone,
   tasks,
 }: MainProps) => {
   return (
@@ -43,7 +45,7 @@ const Main = ({
               </button>
             </div>
           ) : (
-            <TaskList tasks={tasks} />
+            <TaskList tasks={tasks} onToggleDone={onToggleDone} />
           )}
         </section>
       )}
