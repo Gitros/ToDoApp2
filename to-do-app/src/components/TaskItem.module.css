@@ -1,0 +1,20 @@
+.item {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  background: #fafafa;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name {
+  margin: 0;
+  font-size: 1rem;
+}
+.body {
+  margin: 0.25rem 0 0;
+  color: #444;
+  white-space: pre-wrap;
+}

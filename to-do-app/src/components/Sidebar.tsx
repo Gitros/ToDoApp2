@@ -15,8 +15,13 @@ const Sidebar = ({ openForm, tasks }: SidebarProps) => {
           Add task
         </button>
       </div>
-
-      <ul></ul>
+      <ul>
+        {tasks.map((task) => (
+          <div key={task.name}>
+            <p>{task.name}</p>
+          </div>
+        ))}
+      </ul>
     </aside>
   );
 };

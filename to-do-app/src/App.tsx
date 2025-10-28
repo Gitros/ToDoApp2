@@ -17,21 +17,18 @@ function App() {
     setTasks((prev) => [taskData, ...prev]);
   }, []);
 
-  function openFormHandler() {
-    setCreateTask(true);
-  }
-
-  function closeFormHandler() {
-    setCreateTask(false);
-  }
+  const openFormHandler = useCallback(() => setCreateTask(true), []);
+  const closeFormHandler = useCallback(() => setCreateTask(false), []);
 
   return (
     <Layout>
       <Sidebar openForm={openFormHandler} tasks={tasks} />
       <Main
         taskCreation={createTask}
+        openForm={openFormHandler}
         closeForm={closeFormHandler}
         onAddTask={addTaskHandler}
+        tasks={tasks}
       />
     </Layout>
   );
